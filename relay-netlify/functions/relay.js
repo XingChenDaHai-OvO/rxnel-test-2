@@ -26,7 +26,7 @@ const PASS_RESPONSE_HEADERS = [
 // 部署时内联的配置（Netlify 免费档不能通过 API 写共享环境变量，这里直接写死）
 const INLINE_CONFIG = {
   url: "https://tytybaqkrtyqionphxob.supabase.co",
-  key: process.env.SUPABASE_ANON_KEY || "",
+  key: process.env.SUPABASE_ANON_KEY || "probe-dummy-key",
   token: "rxnel_8f3k2m9q"
 };
 
