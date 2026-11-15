@@ -1,0 +1,15 @@
+[build]
+  functions = "functions"
+  publish = "public"
+
+[[redirects]]
+  from = "/auth/*"
+  to = "/.netlify/functions/relay/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/rest/*"
+  to = "/.netlify/functions/relay/:splat"
+  status = 200
+  force = true
