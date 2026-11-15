@@ -22,11 +22,19 @@ const PASS_RESPONSE_HEADERS = [
   "retry-after"
 ];
 
+
+// 部署时内联的配置（Netlify 免费档不能通过 API 写共享环境变量，这里直接写死）
+const INLINE_CONFIG = {
+  url: "https://tytybaqkrtyqionphxob.supabase.co",
+  key: process.env.SUPABASE_ANON_KEY || "",
+  token: "rxnel_8f3k2m9q"
+};
+
 function config() {
   return {
-    url: (process.env.SUPABASE_URL || "").replace(/\/$/, ""),
-    key: process.env.SUPABASE_ANON_KEY || "",
-    token: process.env.RELAY_TOKEN || ""
+    url: (process.env.SUPABASE_URL || INLINE_CONFIG.url || "").replace(/\/$/, ""),
+    key: process.env.SUPABASE_ANON_KEY || INLINE_CONFIG.key || "",
+    token: process.env.RELAY_TOKEN || INLINE_CONFIG.token || ""
   };
 }
 
